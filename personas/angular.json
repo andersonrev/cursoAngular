@@ -1,6 +1,6 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "version": 1, 
+  "version": 1,
   "newProjectRoot": "projects",
   "projects": {
     "personas": {
@@ -28,9 +28,14 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+	      "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+	     "node_modules/jquery/dist/jquery.slim.min.js",
+	     "node_modules/popper.js/dist/umd/popper.min.js",   
+	     "node_modules/bootstrap/dist/js/bootstrap.min.js"   
+	    ]
           },
           "configurations": {
             "production": {
@@ -123,6 +128,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "personas"
+    }
+  },
+  "defaultProject": "personas",
+  "cli": {
+    "analytics": "5924f3ff-e9f8-4368-81cb-12946962717e"
+  }
 }
