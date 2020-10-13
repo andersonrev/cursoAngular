@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output} from '@angular/core';
 import { Persona } from '../persona.model';
+import { PersonasService } from '../personas.service';
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
@@ -7,10 +8,10 @@ import { Persona } from '../persona.model';
 })
 export class FormularioComponent implements OnInit {
 
-  @Output() personaCreada = new EventEmitter<Persona>();
+//  @Output() personaCreada = new EventEmitter<Persona>();
   nombreInput:string;
   apellidoInput: string;
-  constructor() { }
+  constructor(private personasService: PersonasService) { }
 
   ngOnInit(): void {
 
@@ -18,7 +19,8 @@ export class FormularioComponent implements OnInit {
 
   onAgregarPersona(){
     let persona1 = new Persona(this.nombreInput, this.apellidoInput);
-    this.personaCreada.emit(persona1);
+ //   this.personaCreada.emit(persona1);
+    this.personasService.agregarPersona(persona1); 
 
   }
 
