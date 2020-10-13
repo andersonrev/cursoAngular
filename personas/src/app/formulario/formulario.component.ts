@@ -8,18 +8,23 @@ import { PersonasService } from '../personas.service';
 })
 export class FormularioComponent implements OnInit {
 
+  alertapro: number = 0;
+
 //  @Output() personaCreada = new EventEmitter<Persona>();
   nombreInput:string;
   apellidoInput: string;
   constructor(private personasService: PersonasService) {
-    this.personasService
-    .saludar
-    .subscribe((indice:number)=> alert("El indice es: " + indice));
+    
   }
 
 
   ngOnInit(): void {
-
+this.personasService
+    .saludar
+    .subscribe((indice:number)=> {
+      alert("El indice es: " + indice);
+    this.alertapro = indice;
+    });
   }
 
   onAgregarPersona(){
