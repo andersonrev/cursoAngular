@@ -11,7 +11,12 @@ export class FormularioComponent implements OnInit {
 //  @Output() personaCreada = new EventEmitter<Persona>();
   nombreInput:string;
   apellidoInput: string;
-  constructor(private personasService: PersonasService) { }
+  constructor(private personasService: PersonasService) {
+    this.personasService
+    .saludar
+    .subscribe((indice:number)=> alert("El indice es: " + indice));
+  }
+
 
   ngOnInit(): void {
 
