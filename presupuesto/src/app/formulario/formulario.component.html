@@ -1,0 +1,16 @@
+<form>
+  <div class="agregar">
+      <div class="agregar_contenedor">
+          <select (change)="tipoOperacion($event)"
+	    class="agregar_tipo" >
+              <option *ngFor="let item of listaSelect" 
+		  value="item" selected>{{item}}</option>
+          </select>
+          <input type="text" class="agregar_descripcion" placeholder="Agregar Descripción">
+          <input type="number" class="agregar_valor" placeholder="Valor">
+          <button class="agregar_btn"><i class="ion-ios-checkmark-outline"></i></button>
+      </div>
+  </div>
+</form>
+
+
