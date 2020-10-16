@@ -22,6 +22,12 @@
     <button type="submit"
 	   style="cursos.pointer" >+
     </button>
+      <button *ngIf="index != null"
+	   type ="submit"
+	   style="cursor: pointer"
+	   class="buttonRed"
+	   (click)="eliminarPersona()"
+	   >-</button>
 
 </form>
 </div>
