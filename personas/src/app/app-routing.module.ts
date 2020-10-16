@@ -9,17 +9,19 @@ const routes: Routes = [
   },
   {
     path: 'personas',
-    component: PersonasComponent
+    component: PersonasComponent,
+    children: [
+      {
+	path: 'agregar',
+	component: FormularioComponent
+      },
+      {
+	path: ':id',
+	component: FormularioComponent
+      }
+    ]
   },
-  {
-    path: 'personas/agregar',
-    component: FormularioComponent
-  },
-  {
-    path: 'personas/:id',
-    component: FormularioComponent
-  }
-]
+  ]
 @NgModule({
     imports: [
       RouterModule.forRoot(
