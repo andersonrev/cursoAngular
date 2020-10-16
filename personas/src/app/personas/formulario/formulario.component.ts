@@ -1,7 +1,7 @@
 import { Component, OnInit, EventEmitter, Output} from '@angular/core';
 import { Persona } from '../../persona.model';
 import { PersonasService } from '../../personas.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
@@ -14,13 +14,22 @@ export class FormularioComponent implements OnInit {
 //  @Output() personaCreada = new EventEmitter<Persona>();
   nombreInput:string;
   apellidoInput: string;
-  constructor(private personasService: PersonasService,
-  private router: Router) {
+  index: number;
+
+  constructor( private personasService: PersonasService,
+	       private router: Router,
+	       private route: ActivatedRoute) {
     
   }
 
 
   ngOnInit(): void {
+      this.index = this.route.snapshot.params['id'];
+    if(this.index){
+      let persona: Persona = this.personasService.encontrarPersona(this.index);
+      this.nombreInput = persona.nombre;
+      this.apellidoInput = persona.apellido;
+    } 
 this.personasService
     .saludar
     .subscribe((indice:number)=> {
@@ -31,11 +40,16 @@ this.personasService
 
   onGuardarPersona(){
     let persona1 = new Persona(this.nombreInput, this.apellidoInput);
- //   this.personaCreada.emit(persona1);
+
+    if(this.index){
+      this.personasService.modificarPersona(this.index, persona1);
+    }else{
+//   this.personaCreada.emit(persona1);
     this.personasService.agregarPersona(persona1); 
+    }
     this.router.navigate(['personas']);
 
-  }
+   }
 
 
 
