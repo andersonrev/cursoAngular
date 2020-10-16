@@ -1,6 +1,7 @@
 import { Component, OnInit, EventEmitter, Output} from '@angular/core';
-import { Persona } from '../persona.model';
-import { PersonasService } from '../personas.service';
+import { Persona } from '../../persona.model';
+import { PersonasService } from '../../personas.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',
@@ -13,7 +14,8 @@ export class FormularioComponent implements OnInit {
 //  @Output() personaCreada = new EventEmitter<Persona>();
   nombreInput:string;
   apellidoInput: string;
-  constructor(private personasService: PersonasService) {
+  constructor(private personasService: PersonasService,
+  private router: Router) {
     
   }
 
@@ -27,12 +29,14 @@ this.personasService
     });
   }
 
-  onAgregarPersona(){
+  onGuardarPersona(){
     let persona1 = new Persona(this.nombreInput, this.apellidoInput);
  //   this.personaCreada.emit(persona1);
     this.personasService.agregarPersona(persona1); 
+    this.router.navigate(['personas']);
 
   }
+
 
 
 
