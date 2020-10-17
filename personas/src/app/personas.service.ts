@@ -1,7 +1,7 @@
 import { Persona } from './persona.model';
 import { LogginService } from './loggin.service';
 import { Injectable, EventEmitter } from '@angular/core';
-
+import { DataService } from './data.service';
 @Injectable()
 export class PersonasService{
 
@@ -9,11 +9,13 @@ export class PersonasService{
 
   personas: Persona[] = [new Persona("Juan", "Perez"), new Persona("Laura", "Juarez")];
 
-  constructor(private logginService: LogginService ){}
+  constructor(private logginService: LogginService,
+	      private dataService: DataService){}
   
   agregarPersona(persona: Persona){
     this.logginService.enviarMensaje("Hola Caballo" + persona.nombre);
     this.personas.push(persona);
+    this.dataService.guardarPersonas(this.personas);
 
   }
 
