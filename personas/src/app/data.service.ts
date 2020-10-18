@@ -18,6 +18,17 @@ export class DataService {
 	error => console.log('error'+ error) 
 	)
   }
+
+  modificarPersona (index: number , persona: Persona){
+    let url: string;
+   url = 'https://listado-personas-4c8bd.firebaseio.com/datos/' + index +'.json';
+
+    this.httpClient.put(url, persona)
+      .subscribe(
+	reponse => console.log("resultado modificar Persona:" + reponse),
+	error => console.error("Error",error)
+      )
+  }
 }
   
 
