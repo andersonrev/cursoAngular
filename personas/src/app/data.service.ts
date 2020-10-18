@@ -7,6 +7,9 @@ export class DataService {
   constructor(private httpClient: HttpClient){
   }
 
+  cargarPersonas (){
+     return this.httpClient.get('https://listado-personas-4c8bd.firebaseio.com/datos.json');
+  }
   //Guardar Personas
   guardarPersonas(personas: Persona[]){
     this.httpClient.put('https://listado-personas-4c8bd.firebaseio.com/datos.json',personas)
@@ -15,7 +18,7 @@ export class DataService {
 	error => console.log('error'+ error) 
 	)
   }
-
+}
   
 
-}
+

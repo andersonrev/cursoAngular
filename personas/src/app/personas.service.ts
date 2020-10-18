@@ -7,13 +7,23 @@ export class PersonasService{
 
   saludar = new EventEmitter<number>();
 
-  personas: Persona[] = [new Persona("Juan", "Perez"), new Persona("Laura", "Juarez")];
+  personas: Persona[] = [];
 
   constructor(private logginService: LogginService,
 	      private dataService: DataService){}
   
+  setPersonas(personas: Persona[]){
+    this.personas = personas;
+  }
+
+  obtenerPersonas(){
+     return  this.dataService.cargarPersonas();
+  }
   agregarPersona(persona: Persona){
     this.logginService.enviarMensaje("Hola Caballo" + persona.nombre);
+    if(this.personas == null){
+      this.personas = [];
+    }
     this.personas.push(persona);
     this.dataService.guardarPersonas(this.personas);
 
