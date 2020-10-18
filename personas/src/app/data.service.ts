@@ -29,6 +29,18 @@ export class DataService {
 	error => console.error("Error",error)
       )
   }
+
+  eliminarPersona(index: number){
+    let url: string;
+   url = 'https://listado-personas-4c8bd.firebaseio.com/datos/' + index +'.json';
+
+    this.httpClient.delete(url)
+      .subscribe(
+	reponse => console.log("resultado eliminar Persona:" + reponse),
+	error => console.error("Error",error)
+      )
+ 
+  }
 }
   
 
