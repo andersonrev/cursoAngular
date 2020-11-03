@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { PersonasComponent } from './personas/personas.component';
 import { FormularioComponent } from './personas/formulario/formulario.component';
+import { LoginComponent } from './login/login.component';
 import { ErrorComponent } from './error/error.component';
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
 	component: FormularioComponent
       }
     ]
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: '**',

@@ -8,10 +8,12 @@ import { AppComponent } from './app.component';
 import { PersonaComponent } from './personas/persona/persona.component';
 import { PersonasService } from './personas.service';
 import { DataService } from './data.service';
+import { LoginService } from './login/login.service';
 import { FormularioComponent } from './personas/formulario/formulario.component';
 import { LogginService } from './loggin.service';
 import { PersonasComponent } from './personas/personas.component';
 import { ErrorComponent } from './error/error.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { ErrorComponent } from './error/error.component';
     PersonaComponent,
     FormularioComponent,
     PersonasComponent,
-    ErrorComponent
+    ErrorComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { ErrorComponent } from './error/error.component';
   providers: [
   PersonasService,
   LogginService,
-  DataService],
+  DataService,
+  LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
