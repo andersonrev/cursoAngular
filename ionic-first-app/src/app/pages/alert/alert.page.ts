@@ -18,7 +18,7 @@ export class AlertPage implements OnInit {
   }
  async presentAlert() {
     const alert = await this.alertController.create({
-      backdropDismmis: false,
+      backdropDismiss: false,
       cssClass: 'my-custom-class',
       header: 'Alert',
       subHeader: 'Subtitle',
