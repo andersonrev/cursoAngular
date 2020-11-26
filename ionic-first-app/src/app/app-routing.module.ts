@@ -28,6 +28,10 @@ const routes: Routes = [
     path: 'buttons',
     loadChildren: () => import('./pages/buttons/buttons.module').then( m => m.ButtonsPageModule)
   },
+  {
+    path: 'check',
+    loadChildren: () => import('./pages/check/check.module').then( m => m.CheckPageModule)
+  },
   
 ];
 @NgModule({
