@@ -53,8 +53,12 @@ export class InicioPage implements OnInit {
             icon: 'grid-outline',
             name: 'Grid',
             redirecTo: '/grid'
-        }
-
+        },
+	{
+            icon: 'infinite-outline',
+            name: 'Infinite',
+            redirecTo: '/infinite'
+        },
     ];
 
     constructor() {
