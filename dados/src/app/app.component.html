@@ -1,0 +1,14 @@
+<div>
+  <h1>Aplicacion de dados</h1>
+  <div>
+    <button (click)="tirarDados()">TIRAR DATOS</button>
+  </div>
+  <img class="img" [src]="sourceDadoUno" alt="imagen1">
+  <img class="img" [src]="sourceDadoDos" alt="imagen2">
+  <div>
+    <p *ngIf="numeroDadoUno === numeroDadoDos">
+    GANASTE:
+    </p>
+  </div>
+</div>
+
