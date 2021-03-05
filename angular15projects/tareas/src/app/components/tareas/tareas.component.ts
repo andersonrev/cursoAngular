@@ -16,6 +16,7 @@ export class TareasComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('naci Tareaas');
   }
 
   agregarTarea(): void {

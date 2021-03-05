@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { TareasComponent } from './components/tareas/tareas.component';
 import {FormsModule} from '@angular/forms';
+import { ConvertidorComponent } from './components/convertidor/convertidor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    TareasComponent
+    TareasComponent,
+    ConvertidorComponent
   ],
   imports: [
     BrowserModule,
