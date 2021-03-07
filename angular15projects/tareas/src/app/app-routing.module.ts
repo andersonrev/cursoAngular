@@ -4,11 +4,16 @@ import {ConvertidorComponent} from './components/convertidor/convertidor.compone
 import {TareasComponent} from './components/tareas/tareas.component';
 import {InicioComponent} from './components/inicio/inicio.component';
 import {ResultadoComponent} from './components/resultado/resultado.component';
+import {ListaComponent} from './modulos/tabla/componentes/lista/lista.component';
 
 const routes: Routes = [
     {
         path: '',
         component: InicioComponent,
+    },
+    {
+        path: 'lista',
+        component: ListaComponent,
     },
     {
         path: 'tareas',
