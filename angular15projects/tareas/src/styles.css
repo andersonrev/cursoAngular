@@ -7,3 +7,20 @@ body {
   height: 100vh;
 
 }
+
+.row {
+  margin-top: 20px;
+}
+
+.titulo {
+  text-align: center;
+  color: white;
+}
+.contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+
+}
