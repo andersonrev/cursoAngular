@@ -4,3 +4,5 @@ export interface EmpleadoInterface {
     edad: number;
     sexo: string;
 }
+
+

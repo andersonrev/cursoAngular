@@ -5,6 +5,7 @@ import {TareasComponent} from './components/tareas/tareas.component';
 import {InicioComponent} from './components/inicio/inicio.component';
 import {ResultadoComponent} from './components/resultado/resultado.component';
 import {ListaComponent} from './modulos/tabla/componentes/lista/lista.component';
+import {CitasPageComponent} from './modulos/citas/citas-page/citas-page.component';
 
 const routes: Routes = [
     {
@@ -30,6 +31,10 @@ const routes: Routes = [
     {
         path: 'resultado/:valor',
         component: ResultadoComponent,
+    },
+    {
+        path: 'citas',
+        component: CitasPageComponent,
     },
     {
         path: '**',

@@ -10,6 +10,7 @@ import {ConvertidorComponent} from './components/convertidor/convertidor.compone
 import {InicioComponent} from './components/inicio/inicio.component';
 import {ResultadoComponent} from './components/resultado/resultado.component';
 import {TablaModule} from './modulos/tabla/tabla.module';
+import {CitasModule} from './modulos/citas/citas.module';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import {TablaModule} from './modulos/tabla/tabla.module';
         AppRoutingModule,
         FormsModule,
         TablaModule,
+	CitasModule,
     ],
     providers: [],
     bootstrap: [AppComponent]

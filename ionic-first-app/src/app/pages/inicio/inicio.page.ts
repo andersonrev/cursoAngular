@@ -34,7 +34,7 @@ export class InicioPage implements OnInit {
             name: 'Buttons',
             redirecTo: '/buttons'
         },
-	{
+        {
             icon: 'checkmark-circle-outline',
             name: 'Checks',
             redirecTo: '/check'
@@ -49,15 +49,20 @@ export class InicioPage implements OnInit {
             name: 'Fab',
             redirecTo: '/fab'
         },
-	{
+        {
             icon: 'grid-outline',
             name: 'Grid',
             redirecTo: '/grid'
         },
-	{
+        {
             icon: 'infinite-outline',
             name: 'Infinite',
             redirecTo: '/infinite'
+        },
+        {
+            icon: 'reorder-three-outline',
+            name: 'List - Reoder',
+            redirecTo: '/list-reorder'
         },
     ];
 
