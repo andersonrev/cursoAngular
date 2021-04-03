@@ -6,6 +6,8 @@ import {InicioComponent} from './components/inicio/inicio.component';
 import {ResultadoComponent} from './components/resultado/resultado.component';
 import {ListaComponent} from './modulos/tabla/componentes/lista/lista.component';
 import {CitasPageComponent} from './modulos/citas/citas-page/citas-page.component';
+import { GastosComponent } from './modulos/gastos/componentes/gastos/gastos.component';
+import { IngresarPresupuestoComponent } from './modulos/gastos/componentes/ingresar-presupuesto/ingresar-presupuesto.component';
 
 const routes: Routes = [
     {
@@ -35,6 +37,10 @@ const routes: Routes = [
     {
         path: 'citas',
         component: CitasPageComponent,
+    },
+    {
+        path: 'gastos-modulo',
+        loadChildren: ()=> import('./modulos/gastos/gastos.module').then(m => m.GastosModule)
     },
     {
         path: '**',
