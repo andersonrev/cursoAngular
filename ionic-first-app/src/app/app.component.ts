@@ -12,7 +12,7 @@ import {Componente} from './interfaces/interfaces';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss']
 })
-export class AppComponent implements OnInit{
+export class AppComponent {
   componentes: Observable<Componente[]>;
   constructor(
     private platform: Platform,
@@ -28,10 +28,9 @@ export class AppComponent implements OnInit{
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.componentes = this.dataMenu.getMenuOpts();
     });
   }
 
-  ngOnInit(): void {
-      this.componentes = this.dataMenu.getMenuOpts();
-  }
+
 }
