@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MenuController} from '@ionic/angular';
 
 interface Componente {
     icon: string;
@@ -66,10 +67,13 @@ export class InicioPage implements OnInit {
         },
     ];
 
-    constructor() {
+    constructor(private menuCtrl: MenuController) {
     }
 
     ngOnInit() {
     }
 
+    mostrarMenu() {
+        this.menuCtrl.open('first');
+    }
 }
