@@ -25,6 +25,9 @@ export class PopoverPage implements OnInit {
             }
         );
         await popover.present();
+        const {data} = await popover.onWillDismiss();
+        console.log(data);
+
 
     }
 }
