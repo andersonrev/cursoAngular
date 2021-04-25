@@ -48,5 +48,10 @@
     "icon": "reorder-three-outline",
     "name": "List - Reoder",
     "redirecTo": "/list-reorder"
+  },
+  {
+    "icon": "phone-portrait-outline",
+    "name": "Modal",
+    "redirecTo": "/modal"
   }
 ]
