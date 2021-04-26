@@ -9,9 +9,16 @@ export class FiltroPipe implements PipeTransform {
               texto: string = '',
               columna: string = 'title'
     ): any[] {
-        // console.log(arreglo);
-        // console.log(texto);
+        console.log({arreglo, texto});
         if (texto === '') {
+            return arreglo;
+        }
+        if (texto === 'DC Comics') {
+            return arreglo.filter(
+                heroe => heroe[columna] === texto
+            );
+        }
+        if (texto === 'todos') {
             return arreglo;
         }
         if (!arreglo) {
