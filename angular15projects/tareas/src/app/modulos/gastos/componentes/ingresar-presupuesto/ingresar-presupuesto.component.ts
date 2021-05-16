@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { PresupuestoService } from '../../servicios/presupuesto.service';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
+import {PresupuestoService} from '../../servicios/presupuesto.service';
 
 @Component({
   selector: 'app-ingresar-presupuesto',
@@ -19,19 +19,20 @@ export class IngresarPresupuestoComponent implements OnInit, OnDestroy {
     this.cantidad = 0;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   ngOnDestroy(): void {
     console.log('mori ingreso presupuesto');
   }
 
-  agregar() {
+  agregar(): void {
     this.cantidad > 0
       ? this.redirigirPantallaGastos()
-      : (this.cantidadIncorrecta = true);
+      : this.cantidadIncorrecta = true;
   }
 
-  redirigirPantallaGastos() {
+  redirigirPantallaGastos(): void {
     this.cantidadIncorrecta = false;
     this.presupuestoService.presupuesto = this.cantidad;
     this.presupuestoService.restante = this.cantidad;

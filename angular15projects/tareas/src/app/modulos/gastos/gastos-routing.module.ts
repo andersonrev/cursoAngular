@@ -1,12 +1,12 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { GastosComponent } from './componentes/gastos/gastos.component';
-import { IngresarPresupuestoComponent } from './componentes/ingresar-presupuesto/ingresar-presupuesto.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {GastosComponent} from './componentes/gastos/gastos.component';
+import {IngresarPresupuestoComponent} from './componentes/ingresar-presupuesto/ingresar-presupuesto.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo:'ingreso-presupuesto',
+    redirectTo: 'ingreso-presupuesto',
     pathMatch: 'full'
   },
   {
@@ -24,4 +24,5 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class GastosRoutingModule {}
+export class GastosRoutingModule {
+}
