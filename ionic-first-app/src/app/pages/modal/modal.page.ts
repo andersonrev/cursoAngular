@@ -29,7 +29,8 @@ export class ModalPage implements OnInit {
 
         // para recibir los que manda el hijo
         const {data} = await modal.onDidDismiss();
-        console.log(data);
+        console.log('Los datos son')
+        console.log(JSON.stringify(data));
 
         // diferencia entre ondisdismois y onwilldismis
         // con willdismiss los datos son enviados hasta antes de la animacion de cierre del modal
