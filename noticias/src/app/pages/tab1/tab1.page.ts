@@ -16,7 +16,7 @@ export class Tab1Page implements OnInit {
     this.noticiasServices.getTopHeadLines().subscribe((resp) => {
       console.log('noticias', resp)
       //this.noticias = resp.articles;
-      this.noticias.push(...resp.articles);
+      this.noticias.push(...resp?.articles);
     });
 
   }
