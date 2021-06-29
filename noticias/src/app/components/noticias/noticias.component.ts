@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Article } from '../../interfaces/interfaces';
+import {Component, OnInit, Input} from '@angular/core';
+import {Article} from '../../interfaces/interfaces';
 
 @Component({
   selector: 'app-noticias',
@@ -8,12 +8,18 @@ import { Article } from '../../interfaces/interfaces';
 })
 export class NoticiasComponent implements OnInit {
 
+
+  @Input()
+  enFavoritos: boolean = false;
+
   @Input()
   noticias: Article[] = [];
 
 
-  constructor() { }
+  constructor() {
+  }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
 }
