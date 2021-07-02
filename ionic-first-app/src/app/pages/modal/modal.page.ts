@@ -27,6 +27,9 @@ export class ModalPage implements OnInit {
         );
         await modal.present();
 
+        
+
+
         // para recibir los que manda el hijo
         const {data} = await modal.onDidDismiss();
         console.log('Los datos son')
