@@ -12,11 +12,9 @@ export class Tab1Page implements OnInit {
 
 
   peliculasRecientes: Pelicula[] = [];
+  populares: Pelicula[] = [];
 
-  slideOpts = {
-    slidesPerView: 1.3,
-    freeMode: true
-  }
+
   constructor(private moviesService: MoviesService) { }
 
   ngOnInit() {
@@ -25,6 +23,12 @@ export class Tab1Page implements OnInit {
         this.peliculasRecientes = respuesta.results;
         console.log(respuesta);
       }
-    )
+    );
+
+    this.moviesService.getPopulares()
+    .subscribe(resp => {
+      console.log('Populares', resp);
+      this.populares = resp.results;
+    })
   }
 }
