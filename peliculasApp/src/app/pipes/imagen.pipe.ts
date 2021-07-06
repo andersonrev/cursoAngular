@@ -15,7 +15,6 @@ export class ImagenPipe implements PipeTransform {
       return './assets/no-image-banner.jpg';
     }
     const imgUrl = `${URL}/${size}${img}`;
-    console.log('URL', imgUrl);
     return imgUrl;
 //https://image.tmdb.org/t/p/w500/ 
     return null;
