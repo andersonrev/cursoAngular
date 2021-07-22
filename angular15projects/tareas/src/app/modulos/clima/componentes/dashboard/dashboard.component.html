@@ -1,0 +1,20 @@
+<div class="container pt-4">
+    <div class="row">
+        <div class="col-lg-4">
+
+            <img [src]="urlImagen" alt="imagen-clima" width="300px" height="300px">
+        </div>
+        <div class="col-lg-8">
+            <input type="text" [(ngModel)]="ciudad" class="form-control form-control-lg size" placeholder="Ingrese Ciudad">
+            <button (click)="obtenerClima()" [disabled]="ciudad === ''" class="btn btn-primary  btn-block mt-4 size">CANCELAR CLIMA</button>
+
+            <div class="card mt-3">
+                <div class="card-body">
+                    <p><b>Temperatura:</b></p>
+                    <p><b>Humedad:</b></p>
+                    <p><b>Clima:</b></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,11 +1,7 @@
 <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
-    <span class="navbar-brand mb-0 h1" [routerLink]="'tareas'">Navbar</span>
-    <span class="navbar-brand mb-0 h1" [routerLink]="'convertidor'" >Convertidor</span>
-    <span class="navbar-brand mb-0 h1" [routerLink]="'calculator'" >Calculator</span>
-    <span class="navbar-brand mb-0 h1" [routerLink]="'lista'" >Lista</span>
-    <span class="navbar-brand mb-0 h1" [routerLink]="'citas'" >Citas</span>
-    <span class="navbar-brand mb-0 h1" [routerLink]="'gastos-modulo'" >Gastos</span>
+    <span *ngFor="let item of itemsNavbar" class="navbar-brand mb-0 h1" [routerLink]="item.ruta">{{item.item}}</span>
+
 <!--    <span class="navbar-brand mb-0 h1" [routerLink]="'calendario'" >Calendario</span>-->
 
   </div>

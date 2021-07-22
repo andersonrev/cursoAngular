@@ -17,6 +17,7 @@ import {IngresarGastoComponent} from './modulos/gastos/componentes/gastos/ingres
 import {ListarGastosComponent} from './modulos/gastos/componentes/gastos/listar-gastos/listar-gastos.component';
 import {GastosModule} from './modulos/gastos/gastos.module';
 import {FullcaledarproModule} from './modulos/fullcaledarpro/fullcaledarpro.module';
+import { ClimaModule } from './modulos/clima/clima.module';
 
 @NgModule({
   declarations: [

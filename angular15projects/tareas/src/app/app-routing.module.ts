@@ -8,6 +8,7 @@ import {ListaComponent} from './modulos/tabla/componentes/lista/lista.component'
 import {CitasPageComponent} from './modulos/citas/citas-page/citas-page.component';
 import {GastosComponent} from './modulos/gastos/componentes/gastos/gastos.component';
 import {IngresarPresupuestoComponent} from './modulos/gastos/componentes/ingresar-presupuesto/ingresar-presupuesto.component';
+import { DashboardComponent } from './modulos/clima/componentes/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,10 @@ const routes: Routes = [
   {
     path: 'calendario',
     loadChildren: () => import('./modulos/fullcaledarpro/fullcaledarpro.module').then(m => m.FullcaledarproModule)
+  },
+ {
+    path: 'clima',
+    component: DashboardComponent,
   },
   {
     path: '**',

@@ -23,6 +23,8 @@
     "@fullcalendar/daygrid": "4.1.0",
     "@fullcalendar/interaction": "4.1.0",
     "@fullcalendar/timegrid": "4.1.0",
+    "bootstrap": "^5.0.2",
+    "bootswatch": "^5.0.2",
     "primeicons": "^4.1.0",
     "primeng": "^11.4.2",
     "rxjs": "~6.6.0",
