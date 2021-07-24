@@ -32,10 +32,10 @@ export class DetalleComponent implements OnInit {
 
   ngOnInit() {
     this.dataLocal.exitePelicula(this.id).then(
-      existe => this.estrella = (existe) ? 'star' : 'start-outline'
+      existe => this.estrella = (existe) ? 'star' : 'star-outline'
     );
 
-    console.log(this.id);
+    // console.log(this.id);
     this.moviesService.getPeliculaDetalle(this.id).subscribe(res => {
       this.pelicula = res;
       console.log(res)
@@ -54,6 +54,6 @@ export class DetalleComponent implements OnInit {
 
   favoritos() {
     const existe = this.dataLocal.guardarPelicula(this.pelicula);
-    this.estrella = (existe)? 'start': 'star-outline';
+    this.estrella = (existe)? 'star': 'star-outline';
   }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { ModalController } from '@ionic/angular';
-import { Pelicula } from '../../interfaces/interfaces';
+import { Pelicula, PeliculaDetalle } from '../../interfaces/interfaces';
 import { DetalleComponent } from '../detalle/detalle.component';
 
 @Component({
