@@ -15,7 +15,7 @@ export class DataLocalService {
     this.storage.create();
   }
 
-  async presentToast(message: string){
+  async presentToast(message: string) {
     const toast = await this.toastCtrl.create({
       message,
       duration: 1000
@@ -36,11 +36,26 @@ export class DataLocalService {
     if (existe) {
       this.peliculas = this.peliculas.filter(peli => peli.id !== pelicula.id);
       mensaje = 'Removido de favoritos';
-    }else {
+    } else {
       this.peliculas.push(pelicula);
       mensaje = 'Agregadda a favoritos';
     }
     this.presentToast(mensaje);
     this.storage.set('peliculas', this.peliculas);
   }
+
+  async cargarFavoritos() {
+    const peliculas = await this.storage.get('peliculas');
+    this.peliculas = peliculas || [];
+    return this.peliculas;
+  }
+
+  async exitePelicula(id){
+    await this.cargarFavoritos();
+    const exite = this.peliculas.find(peli => peli.id === id);
+
+    return (exite)? true : false;
+  }
+
+
 }
