@@ -41,7 +41,28 @@ export class DataLocalService {
       case 'http':
         this.inAppBrowser.create(registro.text, '_system');
         break;
-
+      case 'geo':
+        this.navCtrl.navigateForward(`/tabs/tab2/mapa/${registro.text}`);
+        break;
     }
+  }
+
+  enviarCorreo() {
+    const arregloTemp = [];
+
+    const titulos = 'Tipo, Formato, Creado en, Texto\n';
+
+    arregloTemp.push(titulos);
+
+
+    this.guardados.forEach(registro => {
+      const linea = `${registro.type}, ${registro.format}, ${registro.created}, ${registro.text.replace(',', ' ')}\n`;
+
+      arregloTemp.push(linea);
+
+    });
+
+    console.log(arregloTemp.join(''));
+
   }
 }

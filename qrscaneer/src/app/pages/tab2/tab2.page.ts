@@ -8,13 +8,13 @@ import { DataLocalService } from '../../services/data-local.service';
 })
 export class Tab2Page {
 
-  constructor(public dataLocal: DataLocalService) {}
+  constructor(public dataLocal: DataLocalService) { }
 
-  enviarCorreo(){
-
+  enviarCorreo() {
+    this.dataLocal.enviarCorreo();
   }
 
-  abrirRegistro(registro){
+  abrirRegistro(registro) {
     this.dataLocal.abrirRegistro(registro);
 
   }
