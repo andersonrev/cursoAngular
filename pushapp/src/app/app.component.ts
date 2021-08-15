@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Platform } from '@ionic/angular';
 import { PushService } from './services/push.service';
 
 @Component({
@@ -8,11 +9,19 @@ import { PushService } from './services/push.service';
 })
 export class AppComponent {
 
- constructor(private pushService: PushService ) {
+  constructor(
+    private platform: Platform,
+    private pushService: PushService) {
     this.initializeApp();
   }
 
-  initializeApp(){
-    this.pushService.configuracionInicial();
+  initializeApp() {
+    this.platform.ready().then(() => {
+      this.pushService.configuracionInicial();
+    });
+  }
+
+  OneSignalInit(){
+    
   }
 }

@@ -10,14 +10,14 @@ import { OSNotificationPayload } from '@ionic-native/onesignal/ngx';
 export class HomePage implements OnInit {
 
   mensajes: OSNotificationPayload[] = [];
-  constructor(private pushService: PushService,
+  constructor(public pushService: PushService,
     private applicationRef: ApplicationRef) { }
 
 
   ngOnInit() {
     this.pushService.pushListener.subscribe(noti => {
       this.mensajes.unshift(noti);
-      this.applicationRef.tick(); // hacer la deteccion de cambios nuevamente
+      this.applicationRef.tick(); // hacer que angular realice la deteccion de cambios nuevamente
     })
   }
 
@@ -25,4 +25,8 @@ export class HomePage implements OnInit {
     this.mensajes = await this.pushService.getMensajes();
   }
 
+  async borrarMensajes() {
+    await this.pushService.borrarMensajes();
+    this.mensajes = [];
+  }
 }
