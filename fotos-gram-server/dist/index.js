@@ -17,7 +17,9 @@ server.app.use(body_parser_1.default.json());
 server.app.use('/user', usuario_1.default);
 server.app.use('/posts', post_1.default);
 // FileUpload
-server.app.use(express_fileupload_1.default());
+server.app.use(express_fileupload_1.default({
+    useTempFiles: true
+}));
 // Conexion a bdd
 mongoose_1.default.connect('mongodb://localhost:49153/fotosgram', { useNewUrlParser: true, useCreateIndex: true }, (err) => {
     if (err)

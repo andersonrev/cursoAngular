@@ -5,4 +5,7 @@ export interface FileUpload {
     tempFilePath: string;
     truncated: boolean;
     mimetype: string;
+
+    // para que no de error
+    mv: Function;
 }
