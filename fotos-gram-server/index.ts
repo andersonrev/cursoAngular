@@ -4,7 +4,8 @@ import mongoose from "mongoose"
 import bodyParser from "body-parser";
 import postRoutes from "./routes/post";
 
-import fileUpload from 'express-fileupload'
+import fileUpload from 'express-fileupload';
+import cors from 'cors';
 
 
 
@@ -24,6 +25,10 @@ server.app.use(fileUpload({
     useTempFiles: true
 }));
 
+
+// Configurar CORS
+
+server.app.use(cors({origin:true, credential: true}));
 
 // Conexion a bdd
 
