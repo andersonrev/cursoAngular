@@ -16,5 +16,11 @@
 <ion-content [fullscreen]="true" color="light">
 
   <app-posts [posts]="posts"></app-posts>
+  
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="siguientes($event)">
+    <ion-infinite-scroll-content>
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
  
 </ion-content>
