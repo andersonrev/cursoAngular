@@ -4,7 +4,8 @@ import mongoose from "mongoose"
 import bodyParser from "body-parser";
 import postRoutes from "./routes/post";
 
-import fileUpload from 'express-fileupload';
+// import fileUpload from "express-fileupload";
+const fileUpload = require('express-fileupload');
 import cors from 'cors';
 
 
@@ -15,16 +16,40 @@ const server = new Server();
 server.app.use(bodyParser.urlencoded({extended: true})); // para recibir inf de formato xwww urlencoded
 server.app.use( bodyParser.json())
 
-
-// rutas de mi app
-server.app.use('/user', userRoutes)
-server.app.use('/posts', postRoutes)
-
 // FileUpload
 server.app.use(fileUpload({
     useTempFiles: true
 }));
 
+
+// rutas de mi app
+server.app.use('/user', userRoutes)
+server.app.use('/posts', postRoutes)
+
+
+
+
+
+server.app.post('/', (req, res)=>{
+    if(req.files){
+      console.log('vea files', req.files)
+  
+      let file = req.files.file;
+      let filename = file.name;
+  
+      console.log(filename)
+  
+  
+      file.mv('./uploads/'+ filename, function(err){
+        if (err){
+      res.send(err)
+        }else {
+      res.send('File Uploaded')
+        }
+      })
+    }
+  })
+  
 
 // Configurar CORS
 

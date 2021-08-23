@@ -56,13 +56,18 @@ postRoutes.post('/', [verificaToken],  (req: any, res: Response) => {
 
 // Servicio para subir archivo
 
-postRoutes.post('/upload', async (req: any, res: Response) => {
+postRoutes.post('/upload', [verificaToken],async(req: any, res: Response) => {
+
     if (!req.files) {
+       // console.log('mire com entra y dice que no tiene files');
         return res.status(400).json({
             ok: false,
             mensaje: 'No se subió ningun archivo',
         });
     }
+
+
+
     // console.log(req);
 
     const file: FileUpload = req.files.image;
@@ -81,7 +86,7 @@ postRoutes.post('/upload', async (req: any, res: Response) => {
         });
     }
 
-    await fileSystem.guardarImagenTemporal(file, req.usuario._id);
+   await fileSystem.guardarImagenTemporal(file, req.usuario._id);
 
     res.json({
         ok: true,

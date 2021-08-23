@@ -52,8 +52,9 @@ postRoutes.post('/', [autenticacion_1.verificaToken], (req, res) => {
     });
 });
 // Servicio para subir archivo
-postRoutes.post('/upload', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+postRoutes.post('/upload', [autenticacion_1.verificaToken], (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     if (!req.files) {
+        // console.log('mire com entra y dice que no tiene files');
         return res.status(400).json({
             ok: false,
             mensaje: 'No se subió ningun archivo',
