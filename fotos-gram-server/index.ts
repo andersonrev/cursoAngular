@@ -4,8 +4,8 @@ import mongoose from "mongoose"
 import bodyParser from "body-parser";
 import postRoutes from "./routes/post";
 
-// import fileUpload from "express-fileupload";
-const fileUpload = require('express-fileupload');
+import fileUpload from "express-fileupload";
+// const fileUpload = require('express-fileupload');
 import cors from 'cors';
 
 
@@ -30,25 +30,25 @@ server.app.use('/posts', postRoutes)
 
 
 
-server.app.post('/', (req, res)=>{
-    if(req.files){
-      console.log('vea files', req.files)
+// server.app.post('/', (req, res)=>{
+//     if(req.files){
+//       console.log('vea files', req.files)
   
-      let file = req.files.file;
-      let filename = file.name;
+//       let file = req.files.file;
+//       let filename = file.name;
   
-      console.log(filename)
+//       console.log(filename)
   
   
-      file.mv('./uploads/'+ filename, function(err){
-        if (err){
-      res.send(err)
-        }else {
-      res.send('File Uploaded')
-        }
-      })
-    }
-  })
+//       file.mv('./uploads/'+ filename, function(err){
+//         if (err){
+//       res.send(err)
+//         }else {
+//       res.send('File Uploaded')
+//         }
+//       })
+//     }
+//   })
   
 
 // Configurar CORS
