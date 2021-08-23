@@ -19,7 +19,7 @@ export class PostsService {
       this.paginaPosts = 0;
     }
     this.paginaPosts ++;
-    return this.http.get<RespuestaPosts>(`/posts/?pagina=${this.paginaPosts}`);
+    return this.http.get<RespuestaPosts>(`${URL}/posts/?pagina=${this.paginaPosts}`);
   }
 
 }
