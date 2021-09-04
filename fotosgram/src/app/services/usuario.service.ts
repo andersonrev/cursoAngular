@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Storage } from '@ionic/storage';
 import { environment } from '../../environments/environment';
+import { Usuario} from '../interfaces/respuesa-posts.interface'
 
 
 const URL = environment.url;
@@ -47,6 +48,25 @@ export class UsuarioService {
   async guardarToken(token: string) {
     this.token = token;
     await this.storage.set('token', token);
+
+  }
+  
+
+  registro(usuario: Usuario): Promise<boolean>{
+      return new Promise(resolve => {
+        this.http.post(`${URL}/user/create`, usuario).subscribe(
+          res => {
+            if (res['ok']) {
+              this.guardarToken(res['token']);
+              resolve(true);
+            } else {
+              this.token = null;
+              this.storage.clear();
+              resolve(false);
+            }
+          }
+        )
+      });
 
   }
 
