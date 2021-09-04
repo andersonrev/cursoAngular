@@ -19,6 +19,8 @@ server.app.use(body_parser_1.default.json());
 server.app.use(express_fileupload_1.default({
     useTempFiles: true
 }));
+// Configurar CORS
+server.app.use(cors_1.default({ origin: true, credentials: true }));
 // rutas de mi app
 server.app.use('/user', usuario_1.default);
 server.app.use('/posts', post_1.default);
@@ -37,8 +39,6 @@ server.app.use('/posts', post_1.default);
 //       })
 //     }
 //   })
-// Configurar CORS
-server.app.use(cors_1.default({ origin: true, credential: true }));
 // Conexion a bdd
 mongoose_1.default.connect('mongodb://localhost:49153/fotosgram', { useNewUrlParser: true, useCreateIndex: true }, (err) => {
     if (err)
