@@ -65,7 +65,7 @@ export class LoginPage implements OnInit {
   }
 
   slideOpts = {
-    initialSlide: 1,
+    initialSlide: 0,
     speed: 400
   };
 
