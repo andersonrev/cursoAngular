@@ -53,7 +53,8 @@ export class Tab2Page {
 
       this.cargandoGeo = false;
       const coords = `${resp.coords.latitude}, ${resp.coords.longitude}`;
-      console.log(coords);;
+      console.log(coords);
+      this.post.coords = coords;
     }
     ).catch(error => {
       this.cargandoGeo = false;
