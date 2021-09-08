@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Camera} from '@ionic-native/camera/ngx';
+import { FileTransfer} from '@ionic-native/file-transfer/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +18,7 @@ import { Camera} from '@ionic-native/camera/ngx';
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule,
     HttpClientModule,
     IonicStorageModule.forRoot()],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, Geolocation,Camera],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }, Geolocation,Camera, FileTransfer],
   bootstrap: [AppComponent],
 })
 export class AppModule { }

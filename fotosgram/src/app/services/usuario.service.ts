@@ -30,11 +30,11 @@ export class UsuarioService {
     return new Promise(resolve => {
       const user = { email, password };
       this.http.post(`${URL}/user/login`, user).subscribe(
-        res => {
+       async res => {
           console.log(res);
 
           if (res['ok']) {
-            this.guardarToken(res['token']);
+            await this.guardarToken(res['token']);
             resolve(true);
           } else {
             this.token = null;
@@ -61,15 +61,17 @@ export class UsuarioService {
     this.token = token;
     await this.storage.set('token', token);
 
+    await this.validaToken();
+
   }
 
 
   registro(usuario: Usuario): Promise<boolean> {
     return new Promise(resolve => {
       this.http.post(`${URL}/user/create`, usuario).subscribe(
-        res => {
+        async res => {
           if (res['ok']) {
-            this.guardarToken(res['token']);
+            await this.guardarToken(res['token']);
             resolve(true);
           } else {
             this.token = null;
@@ -137,6 +139,13 @@ export class UsuarioService {
       )
     });
 
+  }
+
+  logout(){
+    this.token = null;
+    this.usuario = null;
+    this.storage.clear();
+    this.navCtrl.navigateRoot('/login', { animated: true});
   }
 
 }
