@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PostsService } from '../../services/posts.service';
 import { Post } from '../../interfaces/respuesa-posts.interface';
 
+
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -17,6 +18,12 @@ export class Tab1Page implements OnInit {
 
   ngOnInit() {
     this.siguientes();
+
+    this.postService.nuevoPost.subscribe(
+      post => {
+        this.posts.unshift(post);
+      }
+    )
   }
 
   recargar(event: any) {

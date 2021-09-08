@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { PostsService } from '../../services/posts.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { PostsService } from '../../services/posts.service';
 })
 export class Tab2Page {
 
-  tempImages  =[];
+  tempImages = [];
 
   post = {
     mensaje: '',
@@ -16,12 +17,23 @@ export class Tab2Page {
     position: false
   }
 
-  constructor(private postService: PostsService) {}
+  constructor(private postService: PostsService,
+    private router: Router) { }
 
-  crearPost(){
+  async crearPost() {
 
     console.log(this.post);
-    this.postService.crearPosts(this.post);
+    const creado = await this.postService.crearPosts(this.post);
+
+    this.post = {
+      mensaje: '',
+      coords: null,
+      position: false
+
+    }
+
+    this.router.navigateByUrl('/main/tabs/tab1');
+    
 
   }
 
