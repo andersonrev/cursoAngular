@@ -7,6 +7,7 @@ import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {CourseDialogComponent} from '../course-dialog/course-dialog.component';
 import {CoursesService} from '../services/courses.service';
 import {LoadingService} from '../loading/loading.service';
+import {MessagesService} from '../messages/messages.service';
 
 
 @Component({
@@ -22,7 +23,8 @@ export class HomeComponent implements OnInit {
 
 
   constructor(private courseService: CoursesService,
-              private loadService: LoadingService
+              private loadService: LoadingService,
+              private messagesService: MessagesService
   ) {
 
   }
@@ -48,6 +50,12 @@ export class HomeComponent implements OnInit {
     const courses$ = this.courseService.loadAllCourses()
       .pipe(
         map(courses => courses.sort(sortCoursesBySeqNo)),
+        catchError( err => {
+          const message = "Could not load courses";
+          this.messagesService.showErrors(message);
+          console.log(message, err);
+          return throwError(err); // termina el ciclo de vida del obse y con la cadena del obs
+        })
       );
     const loadCourses$ = this.loadService.showLoaderUntilCompleted(courses$);
     this.beginnerCourses$ = loadCourses$
