@@ -45,19 +45,17 @@ export class HomeComponent implements OnInit {
   }
 
   reloadCourses() {
-    this.loadService.loadingOn();
     const courses$ = this.courseService.loadAllCourses()
       .pipe(
         map(courses => courses.sort(sortCoursesBySeqNo)),
-        finalize(() => this.loadService.loadingOff())
       );
-
-    this.beginnerCourses$ = courses$
+    const loadCourses$ = this.loadService.showLoaderUntilCompleted(courses$);
+    this.beginnerCourses$ = loadCourses$
       .pipe(
         map(courses => courses.filter(course => course.category === 'BEGINNER'))
       );
 
-    this.advancedCourses$ = courses$
+    this.advancedCourses$ = loadCourses$
       .pipe(
         map(courses => courses.filter(course => course.category === 'ADVANCED'),
         )
