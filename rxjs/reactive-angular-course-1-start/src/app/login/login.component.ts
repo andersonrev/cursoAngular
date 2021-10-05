@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 
 import {Router} from '@angular/router';
+import {AuthStoreService} from '../services/auth-store.service';
 
 @Component({
   selector: 'login',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private router: Router) {
+    private router: Router,
+    private authStoreService: AuthStoreService) {
 
     this.form = fb.group({
       email: ['test@angular-university.io', [Validators.required]],
@@ -31,7 +33,13 @@ export class LoginComponent implements OnInit {
   login() {
 
     const val = this.form.value;
-
+    this.authStoreService.login(val.email, val.password)
+      .subscribe(() => {
+          this.router.navigateByUrl('/courses');
+        },
+        error => {
+          alert('login failed!');
+        });
 
 
   }
