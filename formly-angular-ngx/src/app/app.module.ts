@@ -7,6 +7,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldDefaultOptions} from '@angular/material/form-field'
+
+const apariencia: MatFormFieldDefaultOptions = {
+   appearance: 'outline'
+}
 
 @NgModule({
   declarations: [
@@ -18,9 +24,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ReactiveFormsModule,
     FormlyModule.forRoot( ),
     FormlyBootstrapModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [{
+    provide: MAT
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
