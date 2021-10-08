@@ -36,6 +36,7 @@ import { LoadingComponent } from './loading/loading.component';
 import { CoursesCardListComponent } from './courses-card-list/courses-card-list.component';
 import {LoadingService} from './loading/loading.service';
 import {MessagesService} from './messages/messages.service';
+import { MapaComponent } from './mapa/mapa.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import {MessagesService} from './messages/messages.service';
     MessagesComponent,
     SearchLessonsComponent,
     LoadingComponent,
-    CoursesCardListComponent
+    CoursesCardListComponent,
+    MapaComponent
 
   ],
   imports: [
