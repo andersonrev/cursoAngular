@@ -41,8 +41,13 @@ export class CourseComponent implements OnInit {
 
   ngOnInit() {
     const courseId = +this.route.snapshot.paramMap.get('courseId');
-    const course$ = this.coursesService.loadCoursesById(courseId);
-    const lessons$ = this.coursesService.loadAllCourseLessons(courseId);
+    const course$ = this.coursesService.loadCoursesById(courseId).pipe(
+      startWith(null)
+    );
+    const lessons$ = this.coursesService.loadAllCourseLessons(courseId)
+      .pipe(
+        startWith([])
+      );
 
     this.data$ = combineLatest([course$, lessons$]).pipe(
       map(([course, lessons]) => {
