@@ -1,7 +1,0 @@
-{
-  "name": "covid",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}

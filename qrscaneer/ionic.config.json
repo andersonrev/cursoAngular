@@ -1,7 +1,0 @@
-{
-  "name": "qrscaneer",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
