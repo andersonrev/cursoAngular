@@ -70,8 +70,8 @@ ion-content {
 
     .chat-section {
       height: calc(100% - 90px);
-      //overflow: scroll;
-      overflow: hidden !important;
+      overflow: scroll;
+      //overflow: hidden !important;
 
       .chat {
         display: flex;
