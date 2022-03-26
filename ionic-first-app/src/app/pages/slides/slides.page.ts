@@ -40,4 +40,8 @@ export class SlidesPage implements OnInit {
     onClick() {
        this.navCtrl.navigateBack('/');
     }
+
+    cambio(){
+        console.log('cambion pros');
+    }
 }
