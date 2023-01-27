@@ -14,12 +14,22 @@ import TileLayer from 'ol/layer/Tile';
 import VectorLayer from 'ol/layer/Vector';
 import {coordinates} from 'ol/geom/flat/reverse';
 
+import * as dayjs from 'dayjs'
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit, AfterViewInit {
+
+
+fechaDayJs = '';
+fechaPura = '';
+mostrarDayJS(){
+  this.fechaDayJs = dayjs().format('YYYY-MM-DD');
+  this.fechaPura = new Date().toISOString().split('T')[0];
+}
   title = 'openlayer';
   map: any;
 
