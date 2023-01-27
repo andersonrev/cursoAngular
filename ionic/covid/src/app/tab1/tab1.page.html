@@ -1,0 +1,62 @@
+<ion-content [fullscreen]="true">
+  <div class="top-section ion-padding">
+    <div class="top-menu">
+      <img src="/assets/menu.png" alt="">
+      <img src="/assets/bell.png" alt="">
+    </div>
+    <div class="title">
+      <h2>Covid 19</h2>
+      <ion-select [interfaceOptions]="customActionSheetOptions" value="india" interface="action-sheet"
+        placeholder="Select one">
+        <ion-select-option value="india">India</ion-select-option>
+        <ion-select-option value="ecuador">Ecuador</ion-select-option>
+      </ion-select>
+    </div>
+
+    <div class="sub-title">
+      <h3>Are you feeling sick?</h3>
+      <p>If you feel sick with any of covid-19 symptops please call or SMS us immediately</p>
+    </div>
+    <div class="action-buttons">
+      <ion-button class="call"> 
+        <ion-icon name="call"></ion-icon>
+        <ion-label>Call now</ion-label>
+      </ion-button>
+
+      <ion-button class="sms"> 
+        <ion-icon name="chatbubble"></ion-icon>
+        <ion-label>Send SMS</ion-label>
+      </ion-button>
+    </div>
+  </div>
+
+  <div class="middle-section ion-padding">
+    <h3>Prevention</h3>
+    <div class="content">
+      <ion-row>
+        <ion-col size="4">
+          <img src="/assets/p1.png" alt="">
+          <p>Avoid close contact</p>
+        </ion-col>
+        
+
+        <ion-col size="4">
+          <img src="/assets/p2.png" alt="">
+          <p>Clean your <br> hands often</p>
+        </ion-col>
+
+        <ion-col size="4">
+          <img src="/assets/p3.png" alt="">
+          <p>Wear a facemask</p>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
+  <div class="bottom-section ion-margin">
+    <img src="/assets/gir1.png" alt="">
+    <div class="content">
+      <h3>Do your own test</h3>
+      <p>Follow the instruction to do your own test</p>
+    </div>
+  </div>
+</ion-content>

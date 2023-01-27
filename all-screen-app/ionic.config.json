@@ -1,0 +1,7 @@
+{
+  "name": "all-screen-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
