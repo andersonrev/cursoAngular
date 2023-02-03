@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
+import { retry } from 'rxjs/operators';
 
 @Component({
   selector: 'app-rxjs',
@@ -24,6 +25,7 @@ export class RxjsComponent {
         }
 
         if( i == 2 ){
+          i = 0;
           observer.error('Errosito');
         }
 
@@ -31,7 +33,9 @@ export class RxjsComponent {
 
     });
 
-    obs$.subscribe({
+    obs$
+      .pipe(retry(2))
+      .subscribe({
       next: valor => console.log('Subs', valor),
       error: err => console.warn('Error', err),
       complete: () => console.info('Termino'),
