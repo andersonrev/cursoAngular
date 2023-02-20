@@ -25,7 +25,7 @@ router.post('/',
 router.put('/:id', 
   [
     check('nombre','El nombre es obligatorio').not().isEmpty(),
-    check('role','El role es obligatorio').not().isEmpty(),
+    check('email','El email es obligatorio').isEmail(),
     validarCampos,
   ],
   actualizarUsuario);

@@ -60,12 +60,12 @@ const crearUsuario = async (req, res = response) => {
 const actualizarUsuario = async (req, res = response) => {
 
   const uid = req.params.id;
-  
+
   try {
 
     const usuarioDB = await Usuario.findById(uid);
-    
-    if( !usuarioDB ){
+
+    if (!usuarioDB) {
       return res.status(404).json({
         ok: false,
         mensaje: 'No existe un usuario con ese iD'
@@ -73,15 +73,13 @@ const actualizarUsuario = async (req, res = response) => {
     }
 
     //Actualizacion
-  
-    const campos = req.body;
 
-    if( usuarioDB.email === req.body.email ){
-      delete campos.email;
-    }else {
+    const { password, google, email, ...campos } = req.body;
 
-      const existeEmail = await Usuario.findOne({email: req.body.email });
-      if( existeEmail ){
+    if (usuarioDB.email !== email) {
+
+      const existeEmail = await Usuario.findOne({ email });
+      if (existeEmail) {
         return res.status(400).json({
           ok: false,
           mensaje: 'Ya existe un usuario con ese email'
@@ -90,12 +88,8 @@ const actualizarUsuario = async (req, res = response) => {
 
     }
 
-    delete campos.password;
-    delete campos.google;
-
+    campos.email = email;
     const usuarioActualizado = await Usuario.findByIdAndUpdate(uid, campos, { new: true });
-
-
 
 
     res.json({
