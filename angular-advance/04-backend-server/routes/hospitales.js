@@ -17,6 +17,9 @@ router.get('/', getHospitales );
 
 router.post('/',
   [
+    validarJWT,
+    check('nombre', 'El nombre del hospital es obligatorio').not().isEmpty(),
+    validarCampos
   ],
   crearHospitales );
 
