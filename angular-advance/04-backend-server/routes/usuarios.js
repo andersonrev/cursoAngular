@@ -30,7 +30,6 @@ router.put('/:id',
   ],
   actualizarUsuario);
 
-
 router.delete('/:id', 
   deleteUsuario
 );
