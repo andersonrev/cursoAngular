@@ -1,7 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'modulo-reactivo',
+    loadChildren: () => import('./modulo-reactivo/modulo-reactivo.module').then(m => m.ModuloReactivoModule),
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
